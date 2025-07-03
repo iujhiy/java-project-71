@@ -8,14 +8,16 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
+import java.util.TreeMap;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
+import java.util.concurrent.Callable;
 
 
 @Command (name = "gendiff", mixinStandardHelpOptions = true, description = "Compares two configuration files and shows a difference.")
-public class App implements Runnable {
+public class App implements Callable<Void> {
     @Option(names = { "-f", "--format" }, paramLabel = "format", description = "output format [default: ${DEFAULT-VALUE}]", defaultValue = "stylish")
-    private String formate;
+    private String format;
 
     @Parameters(paramLabel = "filepath1", description = "path to first file")
     private String filepath1;
@@ -27,14 +29,12 @@ public class App implements Runnable {
         new CommandLine(new App()).execute(args);
     }
     @Override
-    public void run() {
-        try {
-            var firstFileData = getData(filepath1);
-            var secondFileData = getData(filepath2);
-            System.out.println(firstFileData.get("host").equals(secondFileData.get("host")));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public Void call() throws Exception {
+        var firstFileData = getData(filepath1);
+        var secondFileData = getData(filepath2);
+        var differResultFiles = Differ.generate(firstFileData, secondFileData);
+        System.out.println(differResultFiles);
+        return null;
     }
 
     public static Map<String, Object> getData(String filepath) throws Exception {
