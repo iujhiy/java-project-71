@@ -5,6 +5,14 @@ plugins {
     checkstyle
 }
 
+sonar {
+    properties {
+        property("sonar.projectKey", "iujhiy_java-project-71")
+        property("sonar.organisation", "iujhiy")
+        property("sonar.host.url", "https://sonarcloud.io")
+    }
+}
+
 group = "hexlet.code"
 version = "1.0-SNAPSHOT"
 
