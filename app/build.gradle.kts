@@ -1,13 +1,17 @@
 plugins {
     id("com.github.ben-manes.versions") version "0.52.0"
+    id ("org.sonarqube") version "6.2.0.5505"
     application
+    checkstyle
 }
+
 group = "hexlet.code"
 version = "1.0-SNAPSHOT"
 
 application {
     mainClass = "hexlet.code.App"
 }
+
 repositories {
     mavenCentral()
 }
@@ -20,7 +24,6 @@ dependencies {
     implementation ("info.picocli:picocli:4.7.7")
     annotationProcessor ("info.picocli:picocli-codegen:4.7.7")
 }
-
 
 tasks.test {
     useJUnitPlatform()

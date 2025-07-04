@@ -8,15 +8,18 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Map;
-import java.util.TreeMap;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 import java.util.concurrent.Callable;
 
-
-@Command (name = "gendiff", mixinStandardHelpOptions = true, description = "Compares two configuration files and shows a difference.")
+@Command (name = "gendiff",
+        mixinStandardHelpOptions = true,
+        description = "Compares two configuration files and shows a difference.")
 public class App implements Callable<Void> {
-    @Option(names = { "-f", "--format" }, paramLabel = "format", description = "output format [default: ${DEFAULT-VALUE}]", defaultValue = "stylish")
+    @Option(names = { "-f", "--format" },
+            paramLabel = "format",
+            description = "output format [default: ${DEFAULT-VALUE}]",
+            defaultValue = "stylish")
     private String format;
 
     @Parameters(paramLabel = "filepath1", description = "path to first file")
@@ -44,7 +47,7 @@ public class App implements Callable<Void> {
             throw new Exception("File '" + path + "' does not exist");
         }
         var fileData = path.toFile();
-        Map<String, Object> data = mapper.readValue(fileData, new TypeReference<>(){});
+        Map<String, Object> data = mapper.readValue(fileData, new TypeReference<>() { });
         return data;
     }
 }
