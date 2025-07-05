@@ -22,9 +22,9 @@ jobs:
           distribution: 'temurin'
 
       # Change working directory to where your Gradle project is located
-      - name: Navigate to app directory
-        run: cd app
-        shell: bash
+#      - name: Navigate to app directory
+#        run: cd app
+#        shell: bash
 
       # Use the Gradle Wrapper that exists in your project
       - name: Build with Gradle Wrapper
