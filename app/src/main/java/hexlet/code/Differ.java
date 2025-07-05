@@ -19,6 +19,7 @@ public class Differ {
                 resultFileDiffers.add("+ " + key + ": " + secondFileData.get(key));
             }
         });
+
         secondFileData.forEach((key, value) -> {
             if (!firstFileData.containsKey(key)) {
                 resultFileDiffers.add("+ " + key + ": " + value);
