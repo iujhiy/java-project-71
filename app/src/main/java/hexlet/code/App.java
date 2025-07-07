@@ -15,29 +15,29 @@ import java.util.concurrent.Callable;
 @Command (name = "gendiff",
         mixinStandardHelpOptions = true,
         description = "Compares two configuration files and shows a difference.")
-public class App implements Callable<Void> {
+public class App implements Callable<String> {
     @Option(names = { "-f", "--format" },
             paramLabel = "format",
             description = "output format [default: ${DEFAULT-VALUE}]",
             defaultValue = "stylish")
-    private String format;
+    String format;
 
     @Parameters(paramLabel = "filepath1", description = "path to first file")
-    private String filepath1;
+    String filepath1;
 
     @Parameters(paramLabel = "filepath2", description = "path to second file")
-    private String filepath2;
+    String filepath2;
 
     public static void main(String[] args) {
         new CommandLine(new App()).execute(args);
     }
     @Override
-    public Void call() throws Exception {
+    public String call() throws Exception {
         var firstFileData = getData(filepath1);
         var secondFileData = getData(filepath2);
         var differResultFiles = Differ.generate(firstFileData, secondFileData);
         System.out.println(differResultFiles);
-        return null;
+        return differResultFiles;
     }
 
     public static Map<String, Object> getData(String filepath) throws Exception {
