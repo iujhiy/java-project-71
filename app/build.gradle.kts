@@ -3,16 +3,36 @@ plugins {
     id ("org.sonarqube") version "6.2.0.5505"
     application
     checkstyle
+    jacoco
+}
+
+tasks.test {
+    finalizedBy(tasks.jacocoTestReport)
+}
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+}
+
+tasks.jacocoTestReport {
+    reports {
+        xml.required = true
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir("jacocoHtml")
+    }
+}
+
+jacoco {
+    toolVersion = "0.8.13"
+    reportsDirectory = layout.buildDirectory.dir("customJacocoReportDir")
 }
 
 sonar {
     properties {
-        property("sonar.projectKey", "iujhiy_java-project-71")
-        property("sonar.organisation", "iujhiy")
-        property("sonar.host.url", "https://sonarcloud.io")
+        property ("sonar.projectKey", "iujhiy_java-project-71")
+        property ("sonar.organization", "iujhiy")
+        property ("sonar.host.url", "https://sonarcloud.io")
     }
 }
-
 group = "hexlet.code"
 version = "1.0-SNAPSHOT"
 
