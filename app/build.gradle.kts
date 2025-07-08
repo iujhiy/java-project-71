@@ -31,18 +31,12 @@ sonar {
         property("sonar.projectKey", "iujhiy_java-project-71")
         property("sonar.organization", "iujhiy")
         property("sonar.host.url", "https://sonarcloud.io")
-
-        // Correct test report paths
         property("sonar.junit.reportPaths", "build/test-results/test")
         property("sonar.coverage.jacoco.xmlReportPaths", "build/customJacocoReportDir/test/jacocoTestReport.xml")
-
-        // Source configuration
         property("sonar.sources", "src/main/java")
         property("sonar.tests", "src/test/java")
         property("sonar.java.binaries", "build/classes/java/main")
         property("sonar.java.test.binaries", "build/classes/java/test")
-
-        // Encoding
         property("sonar.sourceEncoding", "UTF-8")
     }
 }
