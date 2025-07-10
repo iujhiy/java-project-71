@@ -13,7 +13,7 @@ install:
 	gradle clean install
 
 run-dist:
-	./build/install/app/bin/app /home/nikita/java-project-71/app/src/test/resources/file1.json /home/nikita/java-project-71/app/src/test/resources/file2.json
+	./build/install/app/bin/app /home/nikita/java-project-71/app/src/test/resources/file1.yaml /home/nikita/java-project-71/app/src/test/resources/file2.yaml
 
 run:
 	gradle run

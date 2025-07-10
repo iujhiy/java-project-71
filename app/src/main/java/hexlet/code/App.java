@@ -46,6 +46,10 @@ public class App implements Callable<String> {
         if (!Files.exists(path)) {
             throw new Exception("File '" + path + "' does not exist");
         }
+        var isFileYaml = path.toString().endsWith(".yaml");
+        if (isFileYaml) {
+            return Parser.parsingFromYamlToJson(path);
+        }
         var fileData = path.toFile();
         Map<String, Object> data = mapper.readValue(fileData, new TypeReference<>() { });
         return data;
