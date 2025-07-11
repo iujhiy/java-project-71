@@ -3,6 +3,7 @@ package hexlet.code;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Differ {
@@ -12,9 +13,9 @@ public class Differ {
         firstFileData.forEach((key, value) -> {
             if (!secondFileData.containsKey(key)) {
                 resultFileDiffers.add("- " + key + ": " + value);
-            } else if (secondFileData.get(key).equals(firstFileData.get(key))) {
+            } else if (Objects.equals(secondFileData.get(key), (firstFileData.get(key)))) {
                 resultFileDiffers.add("  " + key + ": "  + value);
-            } else if (!secondFileData.get(key).equals(firstFileData.get(key))) {
+            } else if (!Objects.equals(secondFileData.get(key), (firstFileData.get(key)))) {
                 resultFileDiffers.add("- " + key + ": " + value);
                 resultFileDiffers.add("+ " + key + ": " + secondFileData.get(key));
             }
@@ -26,8 +27,10 @@ public class Differ {
             }
         });
         var result = resultFileDiffers.stream()
-                .map(element -> " " + element)
-                .sorted(Comparator.comparing(s -> s.charAt(3)))
+                .map(s -> "  " + s)
+                .sorted(Comparator.comparing((String s) -> s.substring(3, s.indexOf(":")))
+                        .thenComparing(s -> s.startsWith(" ") ? 0 : 1) // Unchanged lines first
+                        .thenComparing(s -> s.startsWith("-") ? 0 : 1)) // Then deletions before additions
                 .collect(Collectors.joining("\n"));
         return "{\n" + result + "\n}";
     }
