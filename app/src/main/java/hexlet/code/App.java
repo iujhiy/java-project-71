@@ -31,8 +31,12 @@ public class App implements Callable<String> {
     public static void main(String[] args) {
         new CommandLine(new App()).execute(args);
     }
+
     @Override
     public String call() throws Exception {
+        if (!format.equals("stylish")) {
+            return "Something another";
+        }
         var firstFileData = getData(filepath1);
         var secondFileData = getData(filepath2);
         var differResultFiles = Differ.generate(firstFileData, secondFileData);

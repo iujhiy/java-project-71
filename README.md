@@ -9,3 +9,5 @@
 https://asciinema.org/a/dvfolzhIwIRvZaInTxrwtaIWm
 ### difference result files (YAML):
 https://asciinema.org/a/Zp7Ci66vkHNYxYqkSzyuXnPCG
+### difference result recourse files:
+https://asciinema.org/a/LDTqMIsH7Vgvw9cySIImTGOeb

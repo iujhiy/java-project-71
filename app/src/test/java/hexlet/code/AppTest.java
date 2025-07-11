@@ -43,6 +43,7 @@ class AppTest {
     public void testJsonFiles() throws Exception {
         app.filepath1 = getResourcePath("file1.json");
         app.filepath2 = getResourcePath("file2.json");
+        app.format = "stylish";
         String testResult = app.call();
         assertEquals(expected, testResult);
     }
@@ -51,6 +52,7 @@ class AppTest {
     public void testYamlFiles() throws Exception {
         app.filepath1 = getResourcePath("file1.yaml");
         app.filepath2 = getResourcePath("file2.yaml");
+        app.format = "stylish";
         String testResult = app.call();
         assertEquals(expected, testResult);
     }
