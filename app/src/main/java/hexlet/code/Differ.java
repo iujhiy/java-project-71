@@ -1,37 +1,39 @@
 package hexlet.code;
 
-import java.util.Comparator;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import hexlet.code.formatters.Plain;
+import hexlet.code.formatters.Stylish;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.ArrayList;
-import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class Differ {
     public static String generate(Map<String, Object> firstFileData,
-                                  Map<String, Object> secondFileData) {
+                                  Map<String, Object> secondFileData,
+                                  String formatName) {
         var resultFileDiffers = new ArrayList<String>();
-        firstFileData.forEach((key, value) -> {
-            if (!secondFileData.containsKey(key)) {
-                resultFileDiffers.add("- " + key + ": " + value);
-            } else if (Objects.equals(secondFileData.get(key), (firstFileData.get(key)))) {
-                resultFileDiffers.add("  " + key + ": "  + value);
-            } else if (!Objects.equals(secondFileData.get(key), (firstFileData.get(key)))) {
-                resultFileDiffers.add("- " + key + ": " + value);
-                resultFileDiffers.add("+ " + key + ": " + secondFileData.get(key));
-            }
-        });
+        if (formatName.equals("plain")) {
+            return Plain.generate(firstFileData, secondFileData, resultFileDiffers);
+        } else {
+            return Stylish.generate(firstFileData, secondFileData, resultFileDiffers);
+        }
+    }
 
-        secondFileData.forEach((key, value) -> {
-            if (!firstFileData.containsKey(key)) {
-                resultFileDiffers.add("+ " + key + ": " + value);
-            }
-        });
-        var result = resultFileDiffers.stream()
-                .map(s -> "  " + s)
-                .sorted(Comparator.comparing((String s) -> s.substring(3, s.indexOf(":")))
-                        .thenComparing(s -> s.startsWith(" ") ? 0 : 1) // Unchanged lines first
-                        .thenComparing(s -> s.startsWith("-") ? 0 : 1)) // Then deletions before additions
-                .collect(Collectors.joining("\n"));
-        return "{\n" + result + "\n}";
+    public static Map<String, Object> getData(String filepath) throws Exception {
+        ObjectMapper mapper = new ObjectMapper();
+        Path path = Paths.get(filepath).toAbsolutePath().normalize();
+        if (!Files.exists(path)) {
+            throw new Exception("File '" + path + "' does not exist");
+        }
+        var isFileYaml = path.toString().endsWith(".yaml");
+        if (isFileYaml) {
+            return Parser.parsingFromYamlToJson(path);
+        }
+        var fileData = path.toFile();
+        return mapper.readValue(fileData, new TypeReference<>() { });
     }
 }

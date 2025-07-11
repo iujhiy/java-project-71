@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class AppTest {
     private App app;
-    private final String expected = """
+    private final String expectedStylish = """
             {
                 chars1: [a, b, c]
               - chars2: [d, e, f]
@@ -45,7 +45,7 @@ class AppTest {
         app.filepath2 = getResourcePath("file2.json");
         app.format = "stylish";
         String testResult = app.call();
-        assertEquals(expected, testResult);
+        assertEquals(expectedStylish, testResult);
     }
 
     @Test
@@ -54,7 +54,30 @@ class AppTest {
         app.filepath2 = getResourcePath("file2.yaml");
         app.format = "stylish";
         String testResult = app.call();
-        assertEquals(expected, testResult);
+        assertEquals(expectedStylish, testResult);
+    }
+
+    @Test
+    public void testPlainFormat() throws Exception {
+        var expectedPlain = """
+                Property 'chars2' was updated. From [complex value] to false
+                Property 'checked' was updated. From false to true
+                Property 'default' was updated. From null to [complex value]
+                Property 'id' was updated. From 45 to null
+                Property 'key1' was removed
+                Property 'key2' was added with value: 'value2'
+                Property 'numbers2' was updated. From [complex value] to [complex value]
+                Property 'numbers3' was removed
+                Property 'numbers4' was added with value: [complex value]
+                Property 'obj1' was added with value: [complex value]
+                Property 'setting1' was updated. From 'Some value' to 'Another value'
+                Property 'setting2' was updated. From 200 to 300
+                Property 'setting3' was updated. From true to 'none'""";
+        app.filepath1 = getResourcePath("file1.yaml");
+        app.filepath2 = getResourcePath("file2.yaml");
+        app.format = "plain";
+        String testResult = app.call();
+        assertEquals(expectedPlain, testResult);
     }
 
     private String getResourcePath(String filename) {
