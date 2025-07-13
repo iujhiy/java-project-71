@@ -13,3 +13,5 @@ https://asciinema.org/a/Zp7Ci66vkHNYxYqkSzyuXnPCG
 https://asciinema.org/a/LDTqMIsH7Vgvw9cySIImTGOeb
 ### difference result recourse files with plain format:
 https://asciinema.org/a/9wIxwetOlRGbBFw7pqkyypzt0
+### difference result recourse files with json format:
+https://asciinema.org/a/eXVi2Q41gGzJwEfdBQCrDNBJx
