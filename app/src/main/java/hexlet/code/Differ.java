@@ -16,17 +16,14 @@ public class Differ {
     public static String generate(String filepath1,
                                   String filepath2,
                                   String formatName) throws Exception {
-        var resultFileDiffers = new ArrayList<String>();
         var firstFileData = getData(filepath1);
         var secondFileData = getData(filepath2);
-        var result =  Stylish.generate(firstFileData, secondFileData, resultFileDiffers);
-        if (formatName.equals("plain")) {
-            result = Plain.generate(firstFileData, secondFileData, resultFileDiffers);
-        } else if (formatName.equals("json")) {
-            result = JsonFormatter.generate(firstFileData, secondFileData);
-        }
-        System.out.println(result);
-        return result;
+        return switch (formatName) {
+            case "plain" -> Plain.generate(firstFileData, secondFileData, new ArrayList<>());
+            case "json" -> JsonFormatter.generate(firstFileData, secondFileData);
+            default ->
+                    Stylish.generate(firstFileData, secondFileData, new ArrayList<>());
+        };
     }
 
     public static String generate(String filepath1,
