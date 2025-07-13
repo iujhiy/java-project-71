@@ -7,6 +7,8 @@ public class Formatter {
                                      String formatName) throws Exception {
         if (formatName.equals("plain")) {
             return differFiles(filepath1, filepath2, "plain");
+        } else if (formatName.equals("json")) {
+            return differFiles(filepath1, filepath2, "json");
         } else {
             return differFiles(filepath1, filepath2, "stylish");
         }

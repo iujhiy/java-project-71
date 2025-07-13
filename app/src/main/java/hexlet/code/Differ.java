@@ -1,7 +1,9 @@
 package hexlet.code;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import hexlet.code.formatters.JsonFormatter;
 import hexlet.code.formatters.Plain;
 import hexlet.code.formatters.Stylish;
 
@@ -14,13 +16,21 @@ import java.util.ArrayList;
 public class Differ {
     public static String generate(Map<String, Object> firstFileData,
                                   Map<String, Object> secondFileData,
-                                  String formatName) {
+                                  String formatName) throws JsonProcessingException {
         var resultFileDiffers = new ArrayList<String>();
         if (formatName.equals("plain")) {
             return Plain.generate(firstFileData, secondFileData, resultFileDiffers);
+        } else if (formatName.equals("json")) {
+            return JsonFormatter.generate(firstFileData, secondFileData);
         } else {
             return Stylish.generate(firstFileData, secondFileData, resultFileDiffers);
         }
+    }
+
+    public static String generate(Map<String, Object> firstFileData,
+                                  Map<String, Object> secondFileData) {
+        var resultFileDiffers = new ArrayList<String>();
+        return Stylish.generate(firstFileData, secondFileData, resultFileDiffers);
     }
 
     public static Map<String, Object> getData(String filepath) throws Exception {

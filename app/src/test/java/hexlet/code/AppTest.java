@@ -74,10 +74,28 @@ class AppTest {
                 Property 'setting2' was updated. From 200 to 300
                 Property 'setting3' was updated. From true to 'none'""";
         app.filepath1 = getResourcePath("file1.yaml");
-        app.filepath2 = getResourcePath("file2.yaml");
+        app.filepath2 = getResourcePath("file2.json");
         app.format = "plain";
         String testResult = app.call();
         assertEquals(expectedPlain, testResult);
+    }
+
+    @Test
+    public void testJsonFormat() throws Exception {
+        var expectedJson = "{\"chars1\":{\"old\":[\"a\",\"b\",\"c\"],\"new\":[\"a\",\"b\",\"c\"]},"
+                + "\"chars2\":{\"old\":[\"d\",\"e\",\"f\"],\"new\":false},\"checked\":{\"old\":false,"
+                + "\"new\":true},\"default\":{\"old\":null,\"new\":[\"value1\",\"value2\"]},\"id\":{\"old"
+                + "\":45,\"new\":null},\"key1\":{\"removed\":\"value1\"},\"key2\":{\"added\":\"value2\"}"
+                + ",\"numbers1\":{\"old\":[1,2,3,4],\"new\":[1,2,3,4]},\"numbers2\":{\"old\":[2,3,4,5],\""
+                + "new\":[22,33,44,55]},\"numbers3\":{\"removed\":[3,4,5]},\"numbers4\":{\"added\":[4,5,"
+                + "6]},\"obj1\":{\"added\":{\"nestedKey\":\"value\",\"isNested\":true}},\"setting1\":{"
+                + "\"old\":\"Some value\",\"new\":\"Another value\"},\"setting2\":{\"old\":200,\"new\":3"
+                + "00},\"setting3\":{\"old\":true,\"new\":\"none\"}}";
+        app.filepath1 = getResourcePath("file1.yaml");
+        app.filepath2 = getResourcePath("file2.json");
+        app.format = "json";
+        String testResult = app.call();
+        assertEquals(expectedJson, testResult);
     }
 
     private String getResourcePath(String filename) {
