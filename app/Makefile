@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := build-run
 
 setup:
-	gradle wrapper --gradle-version 8.5
+	gradle wrapper --gradle-version 8.7
 
 clean:
 	gradle clean
@@ -13,7 +13,7 @@ install:
 	gradle clean install
 
 run-dist:
-	./build/install/app/bin/app -f json /home/nikita/java-project-71/app/src/test/resources/file1.json /home/nikita/java-project-71/app/src/test/resources/file2.json
+	./build/install/app/bin/app -f stylish /home/nikita/java-project-71/app/src/test/resources/file1.json /home/nikita/java-project-71/app/src/test/resources/file2.json
 
 run:
 	gradle run
