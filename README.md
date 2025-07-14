@@ -8,7 +8,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/iujhiy/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/iujhiy/java-project-71/actions)
 
-This project was made to find differences in data files between two files. The application works with .json and .yml files
+This project was made to find differences in data files between two files. The application works with .json and .yaml files
 
 ## Start
 
