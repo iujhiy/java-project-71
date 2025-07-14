@@ -1,29 +1,29 @@
 setup:
-	make -C app setup
+	make -cd ./app setup
 
 clean:
-	make -C app clean
+	make -cd ./app clean
 
 build:
-	make -C app build
+	make -cd ./app build
 
 install:
-	make -C app install
+	make -cd ./app install
 
 run-dist:
-	make -C app run-dist
+	make -cd ./app run-dist
 
 run:
-	make -C app run
+	make -cd ./app run
 
 test:
-	make -C app test
+	make -cd ./app test
 
 report:
-	make -C app report
+	make -cd ./app report
 
 lint:
-	make -C app lint
+	make -cd ./app lint
 
 check-deps:
-	make -C app check-deps
+	make -cd ./app check-deps
