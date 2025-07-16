@@ -1,34 +1,34 @@
 .DEFAULT_GOAL := build-run
 
 setup:
-	gradle wrapper --gradle-version 8.7
+	./gradlew wrapper --gradle-version 8.7
 
 clean:
-	gradle clean
+	./gradlew clean
 
 build:
-	gradle clean build
+	./gradlew clean build
 
 install:
-	gradle clean install
+	./gradlew clean install
 
 run-dist:
-	./build/install/app/bin/app -f stylish /home/nikita/java-project-71/app/src/test/resources/file1.json /home/nikita/java-project-71/app/src/test/resources/file2.json
+	./build/install/app/bin/app -f json /home/nikita/java-project-71/app/src/test/resources/file1.yaml /home/nikita/java-project-71/app/src/test/resources/file2.yaml
 
 run:
-	gradle run
+	./gradlew run
 
 test:
-	gradle test
+	./gradlew test
 
 report:
-	gradle jacocoTestReport
+	./gradlew jacocoTestReport
 
 lint:
-	gradle checkstyleMain
+	./gradlew checkstyleMain
 
 check-deps:
-	gradle dependencyUpdates -Drevision=release
+	./gradlew dependencyUpdates -Drevision=release
 
 
 build-run: build run

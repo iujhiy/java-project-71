@@ -2,21 +2,19 @@ package hexlet.code;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 
-import java.nio.file.Path;
 import java.util.Map;
 
 public class Parser {
-    private static final ObjectMapper JSON_MAPPER = new ObjectMapper();
-    private static final ObjectMapper YAML_MAPPER = new ObjectMapper(new YAMLFactory());
+    private static final ObjectMapper YAML_MAPPER = new YAMLMapper();
+    private static final ObjectMapper JSON_MAPPER = new JsonMapper();
 
-    public static Map<String, Object> parsingFromYamlToJson(Path filepath) throws Exception {
-        var fileData = filepath.toFile();
-        Map<String, Object> yamlContent = YAML_MAPPER.readValue(fileData, new TypeReference<>() { });
-        var jsonData = JSON_MAPPER.writeValueAsString(yamlContent);
-        Map<String, Object> data = JSON_MAPPER.readValue(jsonData,
-                new TypeReference<>() { });
-        return data;
+    public static Map<String, Object> parsingToJson(String data, String format) throws Exception {
+        if (format.equals("json")) {
+            return JSON_MAPPER.readValue(data, new TypeReference<>() { });
+        }
+        return YAML_MAPPER.readValue(data, new TypeReference<>() { });
     }
 }
