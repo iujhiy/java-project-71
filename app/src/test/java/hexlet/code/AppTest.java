@@ -18,96 +18,84 @@ class AppTest {
     private String expectedPlainData;
 
     @BeforeEach
-    public void setApp(TestInfo info) throws IOException {
+    public void setUp(TestInfo info) throws IOException {
         app = new App();
         if (info.getTags().contains("stylishCheck")) {
-            String expectedStylishPath = getResourcePath("expectedStylish.txt");
-            expectedStylishData = Files.readString(Paths.get(expectedStylishPath));
+            expectedStylishData = readExpectedData("expectedStylish.txt");
         } else if (info.getTags().contains("jsonCheck")) {
-            String expectedJsonPath = getResourcePath("expectedJson.txt");
-            expectedJsonData = Files.readString(Paths.get(expectedJsonPath));
+            expectedJsonData = readExpectedData("expectedJson.txt");
         } else if (info.getTags().contains("plainCheck")) {
-            String expectedPlainPath = getResourcePath("expectedPlain.txt");
-            expectedPlainData = Files.readString(Paths.get(expectedPlainPath));
+            expectedPlainData = readExpectedData("expectedPlain.txt");
         }
     }
 
     @Test
     @Tag("stylishCheck")
     public void testStylishJsonFiles() throws Exception {
-        app.filepath1 = getResourcePath("file1.json");
-        app.filepath2 = getResourcePath("file2.json");
-        app.format = "stylish";
-        String testResult = app.call();
-        assertEquals(expectedStylishData, testResult);
+        configureApp("file1.json", "file2.json", "stylish");
+        assertEquals(expectedStylishData, app.call());
     }
 
     @Test
     @Tag("stylishCheck")
     public void testStylishYamlFiles() throws Exception {
-        app.filepath1 = getResourcePath("file1.yaml");
-        app.filepath2 = getResourcePath("file2.yaml");
-        app.format = "stylish";
-        String testResult = app.call();
-        assertEquals(expectedStylishData, testResult);
+        configureApp("file1.yaml", "file2.yaml", "stylish");
+        assertEquals(expectedStylishData, app.call());
     }
 
     @Test
     @Tag("stylishCheck")
     public void testDefaultJsonFiles() throws Exception {
-        app.filepath1 = getResourcePath("file1.json");
-        app.filepath2 = getResourcePath("file2.json");
-        String testResult = app.call();
-        assertEquals(expectedStylishData, testResult);
+        configureApp("file1.json", "file2.json", null);
+        assertEquals(expectedStylishData, app.call());
     }
 
     @Test
     @Tag("stylishCheck")
     public void testDefaultYamlFiles() throws Exception {
-        app.filepath1 = getResourcePath("file1.yaml");
-        app.filepath2 = getResourcePath("file2.yaml");
-        String testResult = app.call();
-        assertEquals(expectedStylishData, testResult);
+        configureApp("file1.yaml", "file2.yaml", null);
+        assertEquals(expectedStylishData, app.call());
     }
 
     @Test
     @Tag("plainCheck")
     public void testPlainYamlFormat() throws Exception {
-        app.filepath1 = getResourcePath("file1.yaml");
-        app.filepath2 = getResourcePath("file2.yaml");
-        app.format = "plain";
-        String testResult = app.call();
-        assertEquals(expectedPlainData, testResult);
+        configureApp("file1.yaml", "file2.yaml", "plain");
+        assertEquals(expectedPlainData, app.call());
     }
 
     @Test
     @Tag("plainCheck")
     public void testPlainJsonFormat() throws Exception {
-        app.filepath1 = getResourcePath("file1.json");
-        app.filepath2 = getResourcePath("file2.json");
-        app.format = "plain";
-        String testResult = app.call();
-        assertEquals(expectedPlainData, testResult);
+        configureApp("file1.json", "file2.json", "plain");
+        assertEquals(expectedPlainData, app.call());
     }
 
     @Test
     @Tag("jsonCheck")
     public void testJsonFormatByJsonFile() throws Exception {
-        app.filepath1 = getResourcePath("file1.json");
-        app.filepath2 = getResourcePath("file2.json");
-        app.format = "json";
-        String testResult = app.call();
-        assertEquals(expectedJsonData, testResult);
+        configureApp("file1.json", "file2.json", "json");
+        assertEquals(expectedJsonData, app.call());
     }
 
     @Test
     @Tag("jsonCheck")
     public void testJsonFormatByYamlFile() throws Exception {
-        app.filepath1 = getResourcePath("file1.yaml");
-        app.filepath2 = getResourcePath("file2.yaml");
-        app.format = "json";
-        String testResult = app.call();
-        assertEquals(expectedJsonData, testResult);
+        configureApp("file1.yaml", "file2.yaml", "json");
+        assertEquals(expectedJsonData, app.call());
+    }
+
+    private void configureApp(String file1, String file2, String format) {
+        app.setFilepath1(getResourcePath(file1));
+        app.setFilepath2(getResourcePath(file2));
+        if (format != null) {
+            app.setFormat(format);
+        }
+    }
+
+    private String readExpectedData(String filename) throws IOException {
+        String path = getResourcePath(filename);
+        return Files.readString(Paths.get(path));
     }
 
     private String getResourcePath(String filename) {

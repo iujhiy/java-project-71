@@ -26,9 +26,12 @@ public class Stylish {
                 resultFileDiffers.add("+ " + key + ": " + value);
             }
         });
+
+        final int sortWithSign = 3;
+
         var result = resultFileDiffers.stream()
                 .map(s -> "  " + s)
-                .sorted(Comparator.comparing((String s) -> s.substring(3, s.indexOf(":")))
+                .sorted(Comparator.comparing((String s) -> s.substring(sortWithSign, s.indexOf(":")))
                         .thenComparing(s -> s.startsWith(" ") ? 0 : 1)
                         .thenComparing(s -> s.startsWith("-") ? 0 : 1))
                 .collect(Collectors.joining("\n"));
