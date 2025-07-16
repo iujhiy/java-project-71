@@ -10,7 +10,7 @@ import java.util.concurrent.Callable;
 @Command (name = "gendiff",
         mixinStandardHelpOptions = true,
         description = "Compares two configuration files and shows a difference.")
-public class App implements Callable<String> {
+public final class App implements Callable<String> {
     @Option(names = { "-f", "--format" },
             paramLabel = "format",
             description = "output format [default: ${DEFAULT-VALUE}]",
