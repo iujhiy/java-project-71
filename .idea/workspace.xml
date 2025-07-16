@@ -4,407 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a1c748c8-b09f-4e5a-8aec-54226d1e054f" name="Changes" comment="mod Differ.java" />
+    <list default="true" id="aaf8b568-3aee-4f81-8856-3e0d3c160ed9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/app/Makefile" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$/app">
-      <ProjectState />
-    </projectState>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
-    <option name="PUSH_TAGS">
-      <GitPushTagMode>
-        <option name="argument" value="--tags" />
-        <option name="title" value="All" />
-      </GitPushTagMode>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/app" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
-}</component>
-  <component name="ProjectId" id="2zRrZ0C0BF3DH4SWW5ia2AgN5GF" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 3
+}]]></component>
+  <component name="ProjectId" id="2zwlmnAN0RDux2aYCq6mhMea3L4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.App.executor": "Run",
-    "Gradle.AppTest.executor": "Run",
-    "Gradle.AppTest.testErrorFile.executor": "Run",
-    "Gradle.AppTest.testJsonFiles.executor": "Run",
-    "Gradle.AppTest.testYamlFiles.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.app [:hexlet.code.App.main()].executor": "Run",
-    "JUnit.AppTest.executor": "Run",
-    "JUnit.AppTest.testDefaultJsonFiles.executor": "Run",
-    "JUnit.AppTest.testJsonFiles.executor": "Run",
-    "JUnit.AppTest.testStylishJsonFiles.executor": "Run",
-    "JUnit.AppTest.testStylishYamlFiles.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/home/nikita/java-project-71",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Problems",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "advanced.settings"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/app" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
-  </component>
-  <component name="RunManager" selected="JUnit.AppTest">
-    <configuration name="AppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hexlet.code.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hexlet.code" />
-      <option name="MAIN_CLASS_NAME" value="hexlet.code.AppTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.testDefaultJsonFiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hexlet.code.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hexlet.code" />
-      <option name="MAIN_CLASS_NAME" value="hexlet.code.AppTest" />
-      <option name="METHOD_NAME" value="testDefaultJsonFiles" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.testJsonFiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hexlet.code.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hexlet.code" />
-      <option name="MAIN_CLASS_NAME" value="hexlet.code.AppTest" />
-      <option name="METHOD_NAME" value="testJsonFiles" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.testStylishJsonFiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hexlet.code.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hexlet.code" />
-      <option name="MAIN_CLASS_NAME" value="hexlet.code.AppTest" />
-      <option name="METHOD_NAME" value="testStylishJsonFiles" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.testStylishYamlFiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hexlet.code.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hexlet.code" />
-      <option name="MAIN_CLASS_NAME" value="hexlet.code.AppTest" />
-      <option name="METHOD_NAME" value="testStylishYamlFiles" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.AppTest" />
-        <item itemvalue="JUnit.AppTest.testStylishJsonFiles" />
-        <item itemvalue="JUnit.AppTest.testStylishYamlFiles" />
-        <item itemvalue="JUnit.AppTest.testDefaultJsonFiles" />
-        <item itemvalue="JUnit.AppTest.testJsonFiles" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a1c748c8-b09f-4e5a-8aec-54226d1e054f" name="Changes" comment="" />
-      <created>1751704780040</created>
+      <changelist id="aaf8b568-3aee-4f81-8856-3e0d3c160ed9" name="Changes" comment="" />
+      <created>1752650177825</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1751704780040</updated>
+      <updated>1752650177825</updated>
     </task>
-    <task id="LOCAL-00001" summary="add checkstyle.xml">
-      <option name="closed" value="true" />
-      <created>1751707057930</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1751707057930</updated>
-    </task>
-    <task id="LOCAL-00002" summary="add build.yml">
-      <option name="closed" value="true" />
-      <created>1751707383135</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1751707383135</updated>
-    </task>
-    <task id="LOCAL-00003" summary="mv .github">
-      <option name="closed" value="true" />
-      <created>1751707542358</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1751707542358</updated>
-    </task>
-    <task id="LOCAL-00004" summary="mod Differ.java">
-      <option name="closed" value="true" />
-      <created>1751707747334</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1751707747334</updated>
-    </task>
-    <task id="LOCAL-00005" summary="mod gradle.yml">
-      <option name="closed" value="true" />
-      <created>1751707922748</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1751707922748</updated>
-    </task>
-    <task id="LOCAL-00006" summary="mod App.java&#10;add AppTest.java">
-      <option name="closed" value="true" />
-      <created>1751880614678</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1751880614678</updated>
-    </task>
-    <task id="LOCAL-00007" summary="mod AppTest.java&#10;add build.gradle">
-      <option name="closed" value="true" />
-      <created>1751906935125</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1751906935125</updated>
-    </task>
-    <task id="LOCAL-00008" summary="mod build.gradle">
-      <option name="closed" value="true" />
-      <created>1751959857961</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1751959857961</updated>
-    </task>
-    <task id="LOCAL-00009" summary="mod App.java&#10;AppTest.java&#10;build.gradle.kts&#10;Makefile&#10;README.md&#10;&#10;add Parser.java&#10;file1.yaml, file2.yaml">
-      <option name="closed" value="true" />
-      <created>1752133957620</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1752133957620</updated>
-    </task>
-    <task id="LOCAL-00010" summary="mod&#10;AppTest.java&#10;Makefile&#10;file1.yaml / .json, file2.yaml / .json">
-      <option name="closed" value="true" />
-      <created>1752225653201</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1752225653201</updated>
-    </task>
-    <task id="LOCAL-00011" summary="mod&#10;AppTest.java&#10;App.java&#10;README.md">
-      <option name="closed" value="true" />
-      <created>1752230386911</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1752230386911</updated>
-    </task>
-    <task id="LOCAL-00012" summary="mod Differ.java&#10;AppTest.java&#10;Formatter.java&#10;JsonFormatter.java&#10;Makefile">
-      <option name="closed" value="true" />
-      <created>1752405739386</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1752405739386</updated>
-    </task>
-    <task id="LOCAL-00013" summary="mod .gitignore">
-      <option name="closed" value="true" />
-      <created>1752406652523</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1752406652524</updated>
-    </task>
-    <task id="LOCAL-00014" summary="mod .github/workflows">
-      <option name="closed" value="true" />
-      <created>1752407564450</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1752407564450</updated>
-    </task>
-    <task id="LOCAL-00015" summary="fixing some mistakes">
-      <option name="closed" value="true" />
-      <created>1752416375015</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1752416375015</updated>
-    </task>
-    <task id="LOCAL-00016" summary="mod Differ.java Formatter.java">
-      <option name="closed" value="true" />
-      <created>1752417660258</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1752417660258</updated>
-    </task>
-    <task id="LOCAL-00017" summary="delete app/.github">
-      <option name="closed" value="true" />
-      <created>1752418154439</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1752418154439</updated>
-    </task>
-    <task id="LOCAL-00018" summary="review 1">
-      <option name="closed" value="true" />
-      <created>1752496904526</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1752496904526</updated>
-    </task>
-    <task id="LOCAL-00019" summary="mod Makefile">
-      <option name="closed" value="true" />
-      <created>1752497057990</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1752497057990</updated>
-    </task>
-    <task id="LOCAL-00020" summary="mod Makefile&#10;add expectedStylish.txt">
-      <option name="closed" value="true" />
-      <created>1752586137026</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1752586137026</updated>
-    </task>
-    <task id="LOCAL-00021" summary="mod Makefile&#10;App.java&#10;AppTest.java&#10;add expectedJson.txt&#10;expectedPlain.txt">
-      <option name="closed" value="true" />
-      <created>1752648749366</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1752648749366</updated>
-    </task>
-    <task id="LOCAL-00022" summary="mod Differ.java">
-      <option name="closed" value="true" />
-      <created>1752649506110</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1752649506110</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
     <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="add checkstyle.xml" />
-    <MESSAGE value="add build.yml" />
-    <MESSAGE value="mv .github" />
-    <MESSAGE value="mod gradle.yml" />
-    <MESSAGE value="mod App.java&#10;add AppTest.java" />
-    <MESSAGE value="mod AppTest.java&#10;add build.gradle" />
-    <MESSAGE value="mod build.gradle" />
-    <MESSAGE value="mod App.java&#10;AppTest.java&#10;build.gradle.kts&#10;Makefile&#10;README.md&#10;&#10;add Parser.java&#10;file1.yaml, file2.yaml" />
-    <MESSAGE value="mod&#10;AppTest.java&#10;Makefile&#10;file1.yaml / .json, file2.yaml / .json" />
-    <MESSAGE value="mod&#10;AppTest.java&#10;App.java&#10;README.md" />
-    <MESSAGE value="mod Differ.java&#10;AppTest.java&#10;Formatter.java&#10;JsonFormatter.java&#10;Makefile" />
-    <MESSAGE value="mod .gitignore" />
-    <MESSAGE value="mod .github/workflows" />
-    <MESSAGE value="fixing some mistakes" />
-    <MESSAGE value="mod Differ.java Formatter.java" />
-    <MESSAGE value="delete app/.github" />
-    <MESSAGE value="review 1" />
-    <MESSAGE value="mod Makefile" />
-    <MESSAGE value="mod Makefile&#10;add expectedStylish.txt" />
-    <MESSAGE value="mod Makefile&#10;App.java&#10;AppTest.java&#10;add expectedJson.txt&#10;expectedPlain.txt" />
-    <MESSAGE value="mod Differ.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="mod Differ.java" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.NullPointerException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.Exception" package="java.lang" />
-          <option name="timeStamp" value="2" />
-        </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/hexlet/code/App.java</url>
-          <line>14</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/app/src/test/java/hexlet/code/AppTest.java</url>
-          <line>56</line>
-          <properties class="hexlet.code.AppTest" method="testDefaultJsonFiles">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
