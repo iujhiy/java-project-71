@@ -22,10 +22,8 @@ jobs:
           distribution: 'temurin'
 
       # Use the Gradle Wrapper that exists in your project
-      - name: Generate and submit dependency graph
-        uses: gradle/actions/dependency-submission@v4
-        with:
-          gradle-version: 8.13
+      - name: Build with Gradle Wrapper
+        run: make build
 
   dependency-submission:
     runs-on: ubuntu-latest
