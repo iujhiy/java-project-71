@@ -21,19 +21,15 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      # Change working directory to where your Gradle project is located
-#      - name: Navigate to app directory
-#        run: cd app
-#        shell: bash
-
-      # Use the Gradle Wrapper that exists in your project
-      - name: Build with Gradle Wrapper
-        run: make build
+      - name: Build with Gradle
+        working-directory: ./app
+        run: ./gradlew build
 
   dependency-submission:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      dependencies: write
 
     steps:
       - uses: actions/checkout@v4
@@ -44,11 +40,10 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Navigate to app directory
-        run: cd app
-        shell: bash
-
-      - name: Generate and submit dependency graph
+      - name: Submit dependencies
         uses: gradle/actions/dependency-submission@v4
         with:
-          working-directory: app
+          build-root-directory: 'app'  # Указываем поддиректорию
+          gradle-executable: 'app/gradlew'  # Полный путь к wrapper
+          # ИЛИ можно указать версию Gradle явно:
+          # gradle-version: 8.5
