@@ -27,3 +27,6 @@ lint:
 
 check-deps:
 	make -C app check-deps
+
+sonar-run:
+	make -C app sonar-run
