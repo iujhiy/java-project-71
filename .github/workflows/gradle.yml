@@ -40,4 +40,4 @@ jobs:
           distribution: 'temurin'
 
       - name: Generate and submit dependency graph
-        uses: make dependency-submission@v4
+        run: make dependency-submission
