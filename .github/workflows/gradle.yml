@@ -28,7 +28,7 @@ jobs:
 
       # Use the Gradle Wrapper that exists in your project
       - name: Build with Gradle Wrapper
-        run: ./gradlew build
+        run: make build
 
   dependency-submission:
     runs-on: ubuntu-latest
