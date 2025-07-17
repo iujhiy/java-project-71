@@ -5,8 +5,10 @@
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=iujhiy_java-project-71&metric=bugs)](https://sonarcloud.io/summary/new_code?id=iujhiy_java-project-71)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=iujhiy_java-project-71&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=iujhiy_java-project-71)
 [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=iujhiy_java-project-71&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=iujhiy_java-project-71)
-### Hexlet tests and linter status:
+### Hexlet, Java CI and SonarQube check:
 [![Actions Status](https://github.com/iujhiy/java-project-71/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/iujhiy/java-project-71/actions)
+[![Java CI with Gradle](https://github.com/iujhiy/java-project-71/actions/workflows/gradle.yml/badge.svg)](https://github.com/iujhiy/java-project-71/actions/workflows/gradle.yml)
+[![SonarQube](https://github.com/iujhiy/java-project-71/actions/workflows/build.yml/badge.svg)](https://github.com/iujhiy/java-project-71/actions/workflows/build.yml)
 
 This project was made to find differences in data files between two files. The application works with .json and .yaml files
 
