@@ -28,8 +28,5 @@ lint:
 check-deps:
 	make -C app check-deps
 
-dependency-submission:
-	make -C app dependency-submission
-
 sonar-run:
 	make -C app sonar-run
