@@ -30,6 +30,8 @@ lint:
 check-deps:
 	./gradlew dependencyUpdates -Drevision=release
 
+sonar-run:
+	./gradlew build sonar --info
 
 build-run: build run
 
