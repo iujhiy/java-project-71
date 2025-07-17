@@ -21,14 +21,11 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      # Change working directory to where your Gradle project is located
-#      - name: Navigate to app directory
-#        run: cd app
-#        shell: bash
-
       # Use the Gradle Wrapper that exists in your project
-      - name: Build with Gradle Wrapper
-        run: make build
+      - name: Generate and submit dependency graph
+        uses: gradle/actions/dependency-submission@v4
+        with:
+          gradle-version: 8.13
 
   dependency-submission:
     runs-on: ubuntu-latest
