@@ -21,6 +21,11 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      # Change working directory to where your Gradle project is located
+#      - name: Navigate to app directory
+#        run: cd app
+#        shell: bash
+
       # Use the Gradle Wrapper that exists in your project
       - name: Build with Gradle Wrapper
         run: make build
@@ -39,5 +44,11 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
+      - name: Navigate to app directory
+        run: cd app
+        shell: bash
+
       - name: Generate and submit dependency graph
-        run: make dependency-submission
+        uses: gradle/actions/dependency-submission@v4
+        with:
+          working-directory: app
