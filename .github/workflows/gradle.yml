@@ -29,7 +29,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      dependency-graph: write
+      # Для GitHub Dependency Graph больше не нужно явное разрешение
+      # Начиная с 2023 года это разрешение включено по умолчанию
 
     steps:
       - uses: actions/checkout@v4
@@ -43,7 +44,5 @@ jobs:
       - name: Submit dependencies
         uses: gradle/actions/dependency-submission@v4
         with:
-          build-root-directory: 'app'  # Указываем поддиректорию
-          gradle-executable: 'app/gradlew'  # Полный путь к wrapper
-          # ИЛИ можно указать версию Gradle явно:
-          # gradle-version: 8.5
+          build-root-directory: 'app'
+          # gradle-version: 8.5  # Раскомментируйте если нужно указать версию
