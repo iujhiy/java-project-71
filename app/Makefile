@@ -27,6 +27,9 @@ report:
 lint:
 	./gradlew checkstyleMain
 
+dependency-submission:
+	gradle/actions/dependency-submission@v4
+
 check-deps:
 	./gradlew dependencyUpdates -Drevision=release
 
@@ -34,5 +37,6 @@ sonar-run:
 	./gradlew build sonar --info
 
 build-run: build run
+
 
 .PHONY: build
