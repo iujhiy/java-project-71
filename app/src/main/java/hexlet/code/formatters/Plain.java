@@ -1,32 +1,55 @@
 package hexlet.code.formatters;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
-import java.util.Objects;
+import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.Comparator;
 
 public class Plain {
-    public static String generate(Map<String, Object> firstFileData,
-                                  Map<String, Object> secondFileData,
-                                  ArrayList<String> resultFileDiffers) {
-        firstFileData.forEach((key, value) -> {
-            if (!secondFileData.containsKey(key)) {
-                resultFileDiffers.add("Property " + modDependenceClass(key) + " was removed");
-            } else if (!Objects.equals(secondFileData.get(key), (firstFileData.get(key)))) {
-                var newValue = modDependenceClass(secondFileData.get(key));
-                resultFileDiffers.add("Property " + modDependenceClass(key) + " was updated."
-                        + " From " + modDependenceClass(value)
-                        + " to " + newValue);
+    public static String generate(ArrayList<Map<String, Object>> resultDiff) {
+        List<Map<String, Object>> resultPlain = new ArrayList<>(resultDiff);
+        List<String> result = new ArrayList<>();
+
+        for (Map<String, Object> map : resultPlain) {
+            Set<String> keys = map.keySet();
+            String[] keyArray = keys.toArray(new String[0]);
+
+            for (int i = 0; i < keyArray.length; i++) {
+                String fullKey = keyArray[i];
+                String actionType = fullKey.substring(0, fullKey.indexOf(":"));
+                String propertyName = fullKey.substring(fullKey.indexOf(":") + 1);
+
+                switch (actionType) {
+                    case "removed":
+                        result.add(String.format("Property %s was removed",
+                                modDependenceClass(propertyName)));
+                        break;
+
+                    case "unchanged" :
+                        break;
+
+                    case "old value":
+                        Object oldValue = map.get(keyArray[i]);
+                        Object newValue = map.get(keyArray[i + 1]);
+                        result.add(String.format("Property %s was updated. From %s to %s",
+                                modDependenceClass(propertyName),
+                                modDependenceClass(oldValue),
+                                modDependenceClass(newValue)));
+                        i++;
+                        break;
+
+                    default:
+                        result.add(String.format("Property %s was added with value: %s",
+                                modDependenceClass(propertyName),
+                                modDependenceClass(map.get(fullKey))));
+                        break;
+                }
             }
-        });
-        secondFileData.forEach((key, value) -> {
-            if (!firstFileData.containsKey(key)) {
-                resultFileDiffers.add("Property " + modDependenceClass(key)
-                        + " was added with value: "  + modDependenceClass(value));
-            }
-        });
-        return resultFileDiffers.stream()
+        }
+
+        return result.stream()
                 .sorted(Comparator.comparing((String s) -> s))
                 .collect(Collectors.joining("\n"));
     }

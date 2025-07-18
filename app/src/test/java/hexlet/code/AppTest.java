@@ -20,7 +20,8 @@ class AppTest {
     @BeforeEach
     public void setUp(TestInfo info) throws IOException {
         app = new App();
-        if (info.getTags().contains("stylishCheck")) {
+        if (info.getTags().contains("stylishCheck")
+            || info.getTags().contains("defaultCheck")) {
             expectedStylishData = readExpectedData("expectedStylish.txt");
         } else if (info.getTags().contains("jsonCheck")) {
             expectedJsonData = readExpectedData("expectedJson.txt");
@@ -44,14 +45,14 @@ class AppTest {
     }
 
     @Test
-    @Tag("stylishCheck")
+    @Tag("defaultCheck")
     public void testDefaultJsonFiles() throws Exception {
         configureApp("file1.json", "file2.json", null);
         assertEquals(expectedStylishData, app.call());
     }
 
     @Test
-    @Tag("stylishCheck")
+    @Tag("defaultCheck")
     public void testDefaultYamlFiles() throws Exception {
         configureApp("file1.yaml", "file2.yaml", null);
         assertEquals(expectedStylishData, app.call());
