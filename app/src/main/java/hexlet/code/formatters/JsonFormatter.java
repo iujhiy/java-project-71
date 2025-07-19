@@ -42,10 +42,12 @@ public class JsonFormatter {
                         i++;
                         break;
 
-                    default:
+                    case "added":
                         innerMap.put("added", map.get(fullKey));
                         result.put(propertyName, innerMap);
                         break;
+                    default:
+                        throw new RuntimeException("unknow actionType: " + actionType);
                 }
             }
         }

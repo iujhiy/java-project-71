@@ -37,9 +37,11 @@ public class Stylish {
                         i++;
                         break;
 
-                    default:
+                    case "added":
                         result.add("+ " + propertyName + ": " + map.get(fullKey));
                         break;
+                    default:
+                        throw new RuntimeException("unknow actionType: " + actionType);
                 }
             }
         }

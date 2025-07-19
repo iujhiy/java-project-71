@@ -40,11 +40,13 @@ public class Plain {
                         i++;
                         break;
 
-                    default:
+                    case "added":
                         result.add(String.format("Property %s was added with value: %s",
                                 modDependenceClass(propertyName),
                                 modDependenceClass(map.get(fullKey))));
                         break;
+                    default:
+                        throw new RuntimeException("Unknown actionType" + actionType);
                 }
             }
         }
@@ -60,16 +62,19 @@ public class Plain {
         } else if (value instanceof String) {
             return "'" + value + "'";
         } else if (value instanceof Boolean
-                || value instanceof Integer
-                || value instanceof Long
-                || value instanceof Double
-                || value instanceof Float
-                || value instanceof Character
-                || value instanceof Byte
-                || value instanceof Short) {
+                || value instanceof Number
+                || value instanceof Character) {
             return value.toString();
-        } else {
+        } else if (isComplexValue(value)) {
             return "[complex value]";
+        } else {
+            return value.toString();
         }
+    }
+
+    private static boolean isComplexValue(Object value) {
+        return value instanceof Iterable
+                || value instanceof Map
+                || value.getClass().isArray();
     }
 }
