@@ -1,6 +1,7 @@
 package hexlet.code.formatters;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -14,8 +15,7 @@ public class Stylish {
             Set<String> keys = map.keySet();
             String[] keyArray = keys.toArray(new String[0]);
 
-            for (int i = 0; i < keyArray.length; i++) {
-                String fullKey = keyArray[i];
+            for (var fullKey: keyArray) {
                 String actionType = fullKey.substring(0, fullKey.indexOf(":"));
                 String propertyName = fullKey.substring(fullKey.indexOf(":") + 1);
 
@@ -24,21 +24,28 @@ public class Stylish {
                         result.add("- " + propertyName + ": " + map.get(fullKey));
                         break;
 
-                    case "unchanged" :
+                    case "unchanged":
                         result.add("  " + propertyName + ": " + map.get(fullKey));
                         break;
 
                     case "old value":
-                        Object oldValue = map.get(keyArray[i]);
-                        Object newValue = map.get(keyArray[i + 1]);
-                        result.add("- " + propertyName + ": " + oldValue);
-                        result.add("+ " + propertyName + ": " + newValue);
-                        i++;
+                        Object oldValue = map.get(fullKey);
+                        int currentIndex = Arrays.asList(keyArray).indexOf(fullKey);
+                        if (currentIndex < keyArray.length - 1) {
+                            String nextKey = keyArray[currentIndex + 1];
+                            Object newValue = map.get(nextKey);
+                            result.add("- " + propertyName + ": " + oldValue);
+                            result.add("+ " + propertyName + ": " + newValue);
+                        }
+                        break;
+
+                    case "new value":
                         break;
 
                     case "added":
                         result.add("+ " + propertyName + ": " + map.get(fullKey));
                         break;
+
                     default:
                         throw new RuntimeException("unknow actionType: " + actionType);
                 }
