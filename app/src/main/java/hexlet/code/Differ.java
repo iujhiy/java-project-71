@@ -15,9 +15,7 @@ public class Differ {
         var firstFileData = getData(getPath(filepath1));
         var secondFileData = getData(getPath(filepath2));
         var resultDiff = getDiff(firstFileData, secondFileData);
-        var result = formatDiff(resultDiff, formatName);
-        System.out.println(result);
-        return result;
+        return formatDiff(resultDiff, formatName);
     }
 
     public static String generate(String filepath1,
@@ -36,7 +34,7 @@ public class Differ {
     private static Map<String, Object> getData(Path filepath) throws Exception {
         var format = getDataFormat(filepath.toString());
         var data = Files.readString(filepath);
-        return Parser.parsingToJson(data, format);
+        return Parser.parsingFormat(data, format);
     }
 
     private static String getDataFormat(String filePath) {

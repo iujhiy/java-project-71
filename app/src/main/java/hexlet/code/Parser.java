@@ -11,10 +11,13 @@ public class Parser {
     private static final ObjectMapper YAML_MAPPER = new YAMLMapper();
     private static final ObjectMapper JSON_MAPPER = new JsonMapper();
 
-    public static Map<String, Object> parsingToJson(String data, String format) throws Exception {
+    public static Map<String, Object> parsingFormat(String data, String format) throws Exception {
         if (format.equals("json")) {
             return JSON_MAPPER.readValue(data, new TypeReference<>() { });
+        } else if (format.equals("yaml") || format.equals("yml")) {
+            return YAML_MAPPER.readValue(data, new TypeReference<>() { });
+        } else {
+            throw new Exception("Unknow format: " + format);
         }
-        return YAML_MAPPER.readValue(data, new TypeReference<>() { });
     }
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
-import java.util.Comparator;
 
 public class Stylish {
     public static String generate(ArrayList<Map<String, Object>> resultDiff) {
@@ -45,16 +44,9 @@ public class Stylish {
                 }
             }
         }
-
-        final int sortWithSign = 3;
-
         var resultSort = result.stream()
                 .map(s -> "  " + s)
-                .sorted(Comparator.comparing((String s) -> s.substring(sortWithSign, s.indexOf(":")))
-                        .thenComparing(s -> s.startsWith(" ") ? 0 : 1)
-                        .thenComparing(s -> s.startsWith("-") ? 0 : 1))
                 .collect(Collectors.joining("\n"));
-
         return "{\n" + resultSort + "\n}";
     }
 }

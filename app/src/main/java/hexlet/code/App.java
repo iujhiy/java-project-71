@@ -14,7 +14,7 @@ public final class App implements Callable<String> {
             paramLabel = "format",
             description = "output format [default: ${DEFAULT-VALUE}]",
             defaultValue = "stylish")
-    private String format = "stylish";
+    private String format;
 
     @Parameters(paramLabel = "filepath1", description = "path to first file")
     private String filepath1;
@@ -28,30 +28,20 @@ public final class App implements Callable<String> {
 
     @Override
     public String call() throws Exception {
-        return Differ.generate(filepath1, filepath2, format);
+        var result = Differ.generate(filepath1, filepath2, format);
+        System.out.println(result);
+        return result;
     }
 
     public void setFormat(String format) {
         this.format = format;
     }
 
-    public String getFormat() {
-        return format;
-    }
-
     public void setFilepath1(String filepath1) {
         this.filepath1 = filepath1;
     }
 
-    public String getFilepath1() {
-        return filepath1;
-    }
-
     public void setFilepath2(String filepath2) {
         this.filepath2 = filepath2;
-    }
-
-    public String getFilepath2() {
-        return filepath2;
     }
 }

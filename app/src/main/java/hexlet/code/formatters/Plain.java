@@ -1,11 +1,10 @@
 package hexlet.code.formatters;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.Comparator;
 
 public class Plain {
     public static String generate(ArrayList<Map<String, Object>> resultDiff) {
@@ -16,8 +15,7 @@ public class Plain {
             Set<String> keys = map.keySet();
             String[] keyArray = keys.toArray(new String[0]);
 
-            for (int i = 0; i < keyArray.length; i++) {
-                String fullKey = keyArray[i];
+            for (var fullKey: keyArray) {
                 String actionType = fullKey.substring(0, fullKey.indexOf(":"));
                 String propertyName = fullKey.substring(fullKey.indexOf(":") + 1);
 
@@ -27,17 +25,20 @@ public class Plain {
                                 modDependenceClass(propertyName)));
                         break;
 
-                    case "unchanged" :
+                    case "unchanged", "new value":
                         break;
 
                     case "old value":
-                        Object oldValue = map.get(keyArray[i]);
-                        Object newValue = map.get(keyArray[i + 1]);
-                        result.add(String.format("Property %s was updated. From %s to %s",
-                                modDependenceClass(propertyName),
-                                modDependenceClass(oldValue),
-                                modDependenceClass(newValue)));
-                        i++;
+                        Object oldValue = map.get(fullKey);
+                        int currentIndex = Arrays.asList(keyArray).indexOf(fullKey);
+                        if (currentIndex < keyArray.length - 1) {
+                            String nextKey = keyArray[currentIndex + 1];
+                            Object newValue = map.get(nextKey);
+                            result.add(String.format("Property %s was updated. From %s to %s",
+                                    modDependenceClass(propertyName),
+                                    modDependenceClass(oldValue),
+                                    modDependenceClass(newValue)));
+                        }
                         break;
 
                     case "added":
@@ -46,14 +47,12 @@ public class Plain {
                                 modDependenceClass(map.get(fullKey))));
                         break;
                     default:
-                        throw new RuntimeException("Unknown actionType" + actionType);
+                        throw new RuntimeException("Unknown actionType " + actionType);
                 }
             }
         }
 
-        return result.stream()
-                .sorted(Comparator.comparing((String s) -> s))
-                .collect(Collectors.joining("\n"));
+        return String.join("\n", result);
     }
 
     private static String modDependenceClass(Object value) {

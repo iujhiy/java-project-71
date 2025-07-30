@@ -47,14 +47,14 @@ class AppTest {
     @Test
     @Tag("defaultCheck")
     public void testDefaultJsonFiles() throws Exception {
-        configureApp("file1.json", "file2.json", null);
+        configureApp("file1.json", "file2.json");
         assertEquals(expectedStylishData, app.call());
     }
 
     @Test
     @Tag("defaultCheck")
     public void testDefaultYamlFiles() throws Exception {
-        configureApp("file1.yaml", "file2.yaml", null);
+        configureApp("file1.yaml", "file2.yaml");
         assertEquals(expectedStylishData, app.call());
     }
 
@@ -89,9 +89,13 @@ class AppTest {
     private void configureApp(String file1, String file2, String format) {
         app.setFilepath1(getResourcePath(file1));
         app.setFilepath2(getResourcePath(file2));
-        if (format != null) {
-            app.setFormat(format);
-        }
+        app.setFormat(format);
+    }
+
+    private void configureApp(String file1, String file2) {
+        app.setFilepath1(getResourcePath(file1));
+        app.setFilepath2(getResourcePath(file2));
+        app.setFormat("stylish");
     }
 
     private String readExpectedData(String filename) throws IOException {
